@@ -1,24 +1,31 @@
 function hypertrophy() {
+    // Remove initial buttons once one of them is clicked
     let hypertrophy = document.getElementById("hypertrophy");
     hypertrophy.remove();
     let strength = document.getElementById("strength");
     strength.remove();
-
+    let selection = document.getElementById("selection");
+    selection.remove();
+    // Insert new title above newly created buttons
     let input = document.getElementById('input');
+    const muscleSelection = document.createElement('h1');
+    muscleSelection.innerText = "Select a muscle group"
+    input.appendChild(muscleSelection);
+    //Create buttons for selection of each muscle group
     const chestAndTris = document.createElement('div');
-    chestAndTris.innerHTML = "<button class='workout-button' onclick='chestDay()'>Chest & Triceps</button>";
+    chestAndTris.innerHTML = "<button class='workout-button' onclick='chestDay()'><h3>Chest & Triceps</h3></button>";
     input.appendChild(chestAndTris);
 
     const backAndBis = document.createElement('div');
-    backAndBis.innerHTML = "<button class='workout-button' onclick='backDay()'>Back & Biceps</button>";
+    backAndBis.innerHTML = "<button class='workout-button' onclick='backDay()'><h3>Back & Biceps</h3></button>";
     input.appendChild(backAndBis);
 
     const shoulders = document.createElement('div');
-    shoulders.innerHTML = "<button class='workout-button' onclick='shoulderDay()'>Shoulders & Abs</button>";
+    shoulders.innerHTML = "<button class='workout-button' onclick='shoulderDay()'><h3>Shoulders & Abs</h3></button>";
     input.appendChild(shoulders);
 
     const legs = document.createElement('div');
-    legs.innerHTML = "<button class='workout-button' onclick='legDay()'>Legs</button>";
+    legs.innerHTML = "<button class='workout-button' onclick='legDay()'><h3>Legs</h3></button>";
     input.appendChild(legs);
 }
 
@@ -27,23 +34,30 @@ function strength() {
     strength.remove();
     let hypertrophy = document.getElementById("hypertrophy");
     hypertrophy.remove();
+    let selection = document.getElementById("selection");
+    selection.remove();
 
     let input = document.getElementById('input');
+    const muscleSelection = document.createElement('h1');
+    muscleSelection.innerText = "Select a muscle group"
+    input.appendChild(muscleSelection);
+
     const pushday = document.createElement('div');
-    pushday.innerHTML = "<button class='workout-button' onclick='pushDay()'>Push</button>";
+    pushday.innerHTML = "<button class='workout-button' onclick='pushDay()'><h3>Push</h3><p>Push workouts train all the pushing muscles in the upper body: chest, shoulders, and triceps.</p></button>";
     input.appendChild(pushday);
 
     const pullday = document.createElement('div');
-    pullday.innerHTML = "<button class='workout-button' onclick='pullDay()'>Pull</button>";
+    pullday.innerHTML = "<button class='workout-button' onclick='pullDay()'><h3>Pull</h3><p>Pull workouts train all the pulling muscles in the upper body: back, biceps, and rear shoulders.</p></button>";
     input.appendChild(pullday);
 
     const legday = document.createElement('div');
-    legday.innerHTML = "<button class='workout-button' onclick='legDayStrength()'>Legs</button>";
+    legday.innerHTML = "<button class='workout-button' onclick='legDayStrength()'><h3>Legs</h3></button>";
     input.appendChild(legday);
 }
 
 
 function chestDay() {
+    // Randomly pick one exercise from each pair. Exercises are randomly selected everytime a new workout is generated.
     const chestArrayOne = ["Dumbbell bench press 3x12", "Barbell bench press 3x12"];
     const indexOne = Math.floor(Math.random() * chestArrayOne.length);
     const liftOne = chestArrayOne[indexOne];
@@ -67,13 +81,17 @@ function chestDay() {
     const chestArraySix = ["Dumbbell tricep kickback 4x12", "Tricep dips 4x12"];
     const indexSix = Math.floor(Math.random() * chestArraySix.length);
     const liftSix = chestArraySix[indexSix];
-
+    // Insert the appropriate title above the generated workout
     let output = document.getElementById('output');
+    const title = document.createElement('h2');
+    title.innerText = "Chest and Triceps"
+    output.appendChild(title)
+    // Insert the generated workout
     const plan = document.createElement('div');
     plan.className = "exercises";
     plan.innerHTML = liftOne + "<br>" + liftTwo + "<br>" + liftThree + "<br>" + liftFour + "<br>" + liftFive + "<br>" + liftSix;
     output.appendChild(plan);
-
+    // Remove input section 
     let input = document.getElementById('input');    
     input.remove();
 }
@@ -104,6 +122,10 @@ function backDay() {
     const liftSix = backArraySix[indexSix];
 
     let output = document.getElementById('output');
+    const title = document.createElement('h2');
+    title.innerText = "Back and Biceps"
+    output.appendChild(title)
+
     const plan = document.createElement('div');
     plan.className = "exercises";
     plan.innerHTML = liftOne + "<br>" + liftTwo + "<br>" + liftThree + "<br>" + liftFour + "<br>" + liftFive + "<br>" + liftSix;
@@ -143,6 +165,10 @@ function shoulderDay() {
     const liftSeven = shoulderArraySeven[indexSeven];
 
     let output = document.getElementById('output');
+    const title = document.createElement('h2');
+    title.innerText = "Shoulders and Abs"
+    output.appendChild(title)
+
     const plan = document.createElement('div');
     plan.className = "exercises";
     plan.innerHTML = liftOne + "<br>" + liftTwo + "<br>" + liftThree + "<br>" + liftFour + "<br>" + liftFive + "<br>" + liftSix + "<br>" + liftSeven;
@@ -178,6 +204,10 @@ function legDay() {
     const liftSix = legArraySix[indexSix];
 
     let output = document.getElementById('output');
+    const title = document.createElement('h2');
+    title.innerText = "Legs"
+    output.appendChild(title)
+
     const plan = document.createElement('div');
     plan.className = "exercises";
     plan.innerHTML = liftOne + "<br>" + liftTwo + "<br>" + liftThree + "<br>" + liftFour + "<br>" + liftFive + "<br>" + liftSix;
@@ -209,6 +239,10 @@ function pushDay() {
     const liftFive = pushArrayFive[indexFive];
 
     let output = document.getElementById('output');
+    const title = document.createElement('h2');
+    title.innerText = "Push Day"
+    output.appendChild(title)
+
     const plan = document.createElement('div');
     plan.className = "exercises";
     plan.innerHTML = liftOne + "<br>" + liftTwo + "<br>" + liftThree + "<br>" + liftFour + "<br>" + liftFive + "<br>";
@@ -240,6 +274,10 @@ function pullDay() {
     const liftFive = pullArrayFive[indexFive];
 
     let output = document.getElementById('output');
+    const title = document.createElement('h2');
+    title.innerText = "Push Day"
+    output.appendChild(title)
+
     const plan = document.createElement('div');
     plan.className = "exercises";
     plan.innerHTML = liftOne + "<br>" + liftTwo + "<br>" + liftThree + "<br>" + liftFour + "<br>" + liftFive + "<br>";
@@ -271,6 +309,10 @@ function legDayStrength() {
     const liftFive = legArrayFive[indexFive];
 
     let output = document.getElementById('output');
+    const title = document.createElement('h2');
+    title.innerText = "Leg Day"
+    output.appendChild(title)
+
     const plan = document.createElement('div');
     plan.className = "exercises";
     plan.innerHTML = liftOne + "<br>" + liftTwo + "<br>" + liftThree + "<br>" + liftFour + "<br>" + liftFive + "<br>";
