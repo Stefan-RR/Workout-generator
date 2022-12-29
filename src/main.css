@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+}
+main {
+    display: flex;
+    justify-content: center;
+}
+button {
+    font-family: 'Manrope', sans-serif;
+}
+.exercises {
+}
