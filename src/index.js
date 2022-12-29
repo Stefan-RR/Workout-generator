@@ -1,6 +1,8 @@
 function hypertrophy() {
     let hypertrophy = document.getElementById("hypertrophy");
     hypertrophy.remove();
+    let strength = document.getElementById("strength");
+    strength.remove();
 
     let input = document.getElementById('input');
     const chestAndTris = document.createElement('div');
@@ -18,6 +20,26 @@ function hypertrophy() {
     const legs = document.createElement('div');
     legs.innerHTML = "<button class='workout-button' onclick='legDay()'>Legs</button>";
     input.appendChild(legs);
+}
+
+function strength() {
+    let strength = document.getElementById("strength");
+    strength.remove();
+    let hypertrophy = document.getElementById("hypertrophy");
+    hypertrophy.remove();
+
+    let input = document.getElementById('input');
+    const pushday = document.createElement('div');
+    pushday.innerHTML = "<button class='workout-button' onclick='pushDay()'>Push</button>";
+    input.appendChild(pushday);
+
+    const pullday = document.createElement('div');
+    pullday.innerHTML = "<button class='workout-button' onclick='pullDay()'>Pull</button>";
+    input.appendChild(pullday);
+
+    const legday = document.createElement('div');
+    legday.innerHTML = "<button class='workout-button' onclick='legDayStrength()'>Legs</button>";
+    input.appendChild(legday);
 }
 
 
@@ -61,7 +83,7 @@ function backDay() {
     const indexOne = Math.floor(Math.random() * backArrayOne.length);
     const liftOne = backArrayOne[indexOne];
 
-    const backArrayTwo = ["Pull-ups/assisted pull ups 3x12", "Lat pulldown 3x12"];
+    const backArrayTwo = ["Pull-ups/assisted pull-ups 3x12", "Lat pulldown 3x12"];
     const indexTwo = Math.floor(Math.random() * backArrayTwo.length);
     const liftTwo = backArrayTwo[indexTwo];
 
@@ -159,6 +181,99 @@ function legDay() {
     const plan = document.createElement('div');
     plan.className = "exercises";
     plan.innerHTML = liftOne + "<br>" + liftTwo + "<br>" + liftThree + "<br>" + liftFour + "<br>" + liftFive + "<br>" + liftSix;
+    output.appendChild(plan);
+
+    let input = document.getElementById('input');    
+    input.remove();
+}
+
+function pushDay() {
+    const pushArrayOne = ["Barbell bench press 3x5", "Incline barbell bench press 3x5"];
+    const indexOne = Math.floor(Math.random() * pushArrayOne.length);
+    const liftOne = pushArrayOne[indexOne];
+
+    const pushArrayTwo = ["Standing overhead press 3x5", "Seated overhead press 3x5"];
+    const indexTwo = Math.floor(Math.random() * pushArrayTwo.length);
+    const liftTwo = pushArrayTwo[indexTwo];
+
+    const pushArrayThree = ["Weighted dips 3x10", "Close grip bench press 3x10"];
+    const indexThree = Math.floor(Math.random() * pushArrayThree.length);
+    const liftThree = pushArrayThree[indexThree];
+
+    const pushArrayFour = ["Tricep cable rope pushdown 3x10", "Tricep cable bar pushdown 3x10"];
+    const indexFour = Math.floor(Math.random() * pushArrayFour.length);
+    const liftFour = pushArrayFour[indexFour];
+
+    const pushArrayFive = ["Dumbbell lateral raise 3x10", "Single arm cable lateral raise 3x10"];
+    const indexFive = Math.floor(Math.random() * pushArrayFive.length);
+    const liftFive = pushArrayFive[indexFive];
+
+    let output = document.getElementById('output');
+    const plan = document.createElement('div');
+    plan.className = "exercises";
+    plan.innerHTML = liftOne + "<br>" + liftTwo + "<br>" + liftThree + "<br>" + liftFour + "<br>" + liftFive + "<br>";
+    output.appendChild(plan);
+
+    let input = document.getElementById('input');    
+    input.remove();
+}
+
+function pullDay() {
+    const pullArrayOne = ["Deadlifts 3x5", "Rack pulls 3x5"];
+    const indexOne = Math.floor(Math.random() * pullArrayOne.length);
+    const liftOne = pullArrayOne[indexOne];
+
+    const pullArrayTwo = ["Barbell rows 3x5", "Dumbbell rows 3x5"];
+    const indexTwo = Math.floor(Math.random() * pullArrayTwo.length);
+    const liftTwo = pullArrayTwo[indexTwo];
+
+    const pullArrayThree = ["Weighted chin-ups 3x10", "Weighted pull-ups 3x10"];
+    const indexThree = Math.floor(Math.random() * pullArrayThree.length);
+    const liftThree = pullArrayThree[indexThree];
+
+    const pullArrayFour = ["Preacher curls 3x10", "Standing barbell curls 3x10"];
+    const indexFour = Math.floor(Math.random() * pullArrayFour.length);
+    const liftFour = pullArrayFour[indexFour];
+
+    const pullArrayFive = ["Shrugs 3x10", "Farmer's walk 3x40feet"];
+    const indexFive = Math.floor(Math.random() *pullArrayFive.length);
+    const liftFive = pullArrayFive[indexFive];
+
+    let output = document.getElementById('output');
+    const plan = document.createElement('div');
+    plan.className = "exercises";
+    plan.innerHTML = liftOne + "<br>" + liftTwo + "<br>" + liftThree + "<br>" + liftFour + "<br>" + liftFive + "<br>";
+    output.appendChild(plan);
+
+    let input = document.getElementById('input');    
+    input.remove();
+}
+
+function legDayStrength() {
+    const legArrayOne = ["Barbell squat 3x5", "Front squat 3x10"];
+    const indexOne = Math.floor(Math.random() * legArrayOne.length);
+    const liftOne = legArrayOne[indexOne];
+
+    const legArrayTwo = ["Romanian deadlift 3x5", "Barbell hip thrust 3x5"];
+    const indexTwo = Math.floor(Math.random() * legArrayTwo.length);
+    const liftTwo = legArrayTwo[indexTwo];
+
+    const legArrayThree = ["Quad extensions 3x10", "Good mornings 3x10"];
+    const indexThree = Math.floor(Math.random() * legArrayThree.length);
+    const liftThree = legArrayThree[indexThree];
+
+    const legArrayFour = ["Leg press 3x10", "Hack squat machine 3x10"];
+    const indexFour = Math.floor(Math.random() * legArrayFour.length);
+    const liftFour = legArrayFour[indexFour];
+
+    const legArrayFive = ["Seated hamstring curl 3x10", "Calf raises 3x10"];
+    const indexFive = Math.floor(Math.random() * legArrayFive.length);
+    const liftFive = legArrayFive[indexFive];
+
+    let output = document.getElementById('output');
+    const plan = document.createElement('div');
+    plan.className = "exercises";
+    plan.innerHTML = liftOne + "<br>" + liftTwo + "<br>" + liftThree + "<br>" + liftFour + "<br>" + liftFive + "<br>";
     output.appendChild(plan);
 
     let input = document.getElementById('input');    
